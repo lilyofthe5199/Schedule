@@ -78,8 +78,6 @@ void sched_print(void* obj)
 
 
 
-
-
 //generating a structure of scheduling information
 void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {

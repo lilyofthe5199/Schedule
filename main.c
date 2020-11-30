@@ -26,6 +26,7 @@ int main(int argc, char *argv[]) {
 	//1. FILE pointer open & error handling
 	//fill code here ----
 	
+	
 	//initializing the list
 	printf("Reading the data files... \n");
 	list = (void*)list_genList();
@@ -53,10 +54,16 @@ int main(int argc, char *argv[]) {
 	{
 		//3. menu printing
 		//fill code here ---- 
+		printf("1. print all the schedules\n");
+		pirntf("2. search for schedules in the month\n");
+		pirntf("3. search for schedules in the place\n");
+		pirntf("4. search for specific type schedule\n");
+		pirntf("5. exit\n");		
 		
 		//4. get option from keyboard
 		//fill code here ----
-		
+		printf("\n select an option : ");
+		scanf("%i", &option);
 		
 		switch(option)
 		{
