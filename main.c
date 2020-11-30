@@ -25,7 +25,10 @@ int main(int argc, char *argv[]) {
 	
 	//1. FILE pointer open & error handling
 	//fill code here ----
-	
+	if ((fp = fopen("schedule.dat", "r")) == NULL)
+	{
+		return -1;
+	}
 	
 	//initializing the list
 	printf("Reading the data files... \n");
@@ -35,7 +38,8 @@ int main(int argc, char *argv[]) {
 	
 	
 	//2. read from the file
-	while ( /* fill code here -- read from the file*/ )
+	while ( /* fill code here -- read from the file*/ 
+			(fp = fopen("schedule.dat", "r")) != NULL)
 	{	
 		//fill code here -- generate genSchedInfo structure by genSchedInfo function
 		
@@ -55,10 +59,10 @@ int main(int argc, char *argv[]) {
 		//3. menu printing
 		//fill code here ---- 
 		printf("1. print all the schedules\n");
-		pirntf("2. search for schedules in the month\n");
-		pirntf("3. search for schedules in the place\n");
-		pirntf("4. search for specific type schedule\n");
-		pirntf("5. exit\n");		
+		printf("2. search for schedules in the month\n");
+		printf("3. search for schedules in the place\n");
+		printf("4. search for specific type schedule\n");
+		printf("5. exit\n");		
 		
 		//4. get option from keyboard
 		//fill code here ----
@@ -120,7 +124,8 @@ int main(int argc, char *argv[]) {
 				printf("your choice : ");
 				scanf("%s", typeName);
 				
-				if (/* fill code here -- convert the type and check if the type is valid */)
+				if (/* fill code here -- convert the type and check if the type is valid */
+					0 <= typeName < 7)
 				{
 					ndPtr = list;
 					while (list_isEndNode(ndPtr) == 0)
