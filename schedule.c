@@ -88,6 +88,16 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 	//allocate memory and set the member variables
 	
 	
+	
+	
+	struct schedInfo{
+		char* name;
+		char* place;
+		int type;
+		int month;
+		int day;
+	};
+	
 	return (void*)schedPtr;
 }
 
