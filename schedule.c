@@ -72,32 +72,31 @@ void sched_print(void* obj)
 	return;
 }
 
-
-
-
-
-
-
 //generating a structure of scheduling information
 void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
 	schedInfo_t* schedPtr;
-	
+	//fscanf(fp, "%s %s %i %i %d\n", name, place, type, month, day);
 	//error handler
-
+	/*
+	if (schedPtr == NULL) {
+		printf("[ERROR] failed to generate the schedule Info!\n");
+	}
+	*/
 	//allocate memory and set the member variables
-	
-	
-	
 	
 	struct schedInfo{
 		char* name;
-		char* place;
+
 		int type;
 		int month;
 		int day;
+		char* place;
 	};
 	
+	schedPtr = (struct schedInfo *)malloc(sizeof(struct schedInfo));
+	//struct schedInfo schedPtr = malloc(sizeof(struct schedInfo));
+
 	return (void*)schedPtr;
 }
 
