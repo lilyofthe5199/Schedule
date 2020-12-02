@@ -104,6 +104,12 @@ int main(int argc, char *argv[]) {
 				{
 					//file code here -- print count and each scheduling info element
 					printf("-------------------------");
+					/*
+					while(list_len(schedInfo)){
+						sched_print(schedInfo);
+					}
+					*/
+					//list_len(schedInfo);
 					sched_print(schedInfo);
 				
 					printf(".");
@@ -111,7 +117,7 @@ int main(int argc, char *argv[]) {
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 
 					//fill code this part - end
-					
+					//list_isEndNode(ndPtr) == 1;
 				}
 				
 				break;

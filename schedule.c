@@ -75,16 +75,15 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
 	schedInfo_t* schedPtr;
 
-	//2. read from the file
+	
 
 	//sscanf(line,"%s %s %d %d %d", name, place, &type, &month, &day);
 	printf("%s %s %d %d %d\n", name, place, type, month, day);
 	
 	//error handler
-	if (name == NULL) {
+	if (name == NULL || place == NULL) {
 		printf("[ERROR] failed to generate the schedule Info!\n");
 	}
-	
 	
 	//allocate memory and set the member variables
 	schedPtr = malloc(sizeof(schedInfo_t));
@@ -114,7 +113,7 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 //get month information from the scheduler info structure
 float sched_getMonth(void* obj)
 {
-	
+	//list_srchNd(obj, schedInfo);
 }
 
 
