@@ -35,8 +35,6 @@ typedef enum scheduleType {
 	privacy			//°³ÀÎ»ç 
 } scheduleType_e;
 
-
-
 //structure definition for a schedule info.
 typedef struct schedInfo
 {
@@ -76,25 +74,36 @@ void sched_print(void* obj)
 void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
 	schedInfo_t* schedPtr;
-	//fscanf(fp, "%s %s %i %i %d\n", name, place, type, month, day);
+
+	//2. read from the file
+
+	//sscanf(line,"%s %s %d %d %d", name, place, &type, &month, &day);
+	printf("%s %s %d %d %d\n", name, place, type, month, day);
+	
 	//error handler
-	/*
-	if (schedPtr == NULL) {
+	if (name == NULL) {
 		printf("[ERROR] failed to generate the schedule Info!\n");
 	}
-	*/
+	
+	
 	//allocate memory and set the member variables
+	schedPtr = malloc(sizeof(schedInfo_t));
 	
-	struct schedInfo{
-		char* name;
-
-		int type;
-		int month;
-		int day;
-		char* place;
-	};
-	
-	schedPtr = (struct schedInfo *)malloc(sizeof(struct schedInfo));
+	/*
+	strcpy(schedPtr->name, &name);
+	strcpy(schedPtr->place, &place);
+	strcpy(schedPtr->type, &type);
+	strcpy(schedPtr->month, &month);
+	strcpy(schedPtr->day, &day);
+	*/
+	/*
+	strcpy(schedPtr->name, name);
+	strcpy(schedPtr->place, place);
+	strcpy(schedPtr->type, type);
+	strcpy(schedPtr->month, month);
+	strcpy(schedPtr->day, day);
+	*/
+	//schedPtr = (struct schedInfo *)malloc(sizeof(struct schedInfo));
 	//struct schedInfo schedPtr = malloc(sizeof(struct schedInfo));
 
 	return (void*)schedPtr;
