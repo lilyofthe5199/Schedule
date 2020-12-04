@@ -75,6 +75,7 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
 	schedInfo_t* schedPtr;
 	
+	//파일 잘 읽어오나 확인.. 
 	printf("%s %s %d %d %d\n", name, place, type, month, day);
 	
 	//error handler
@@ -83,18 +84,10 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 	}
 	
 	//allocate memory and set the member variables
-	//list_genList();
-	//schedPtr = (struct schedInfo_t*)malloc(sizeof(struct schedInfo_t*));
 	schedPtr = malloc(sizeof(schedInfo_t));
+	//schedPtr = (struct schedInfo_t*)malloc(sizeof(struct schedInfo_t*));
 	//struct schedInfo schedPtr = malloc(sizeof(struct schedInfo));
 
-	/*
-	strcpy(schedPtr->name, name);
-	strcpy(schedPtr->place, place);
-	strcpy(schedPtr->type, type);
-	strcpy(schedPtr->month, month);
-	strcpy(schedPtr->day, day);
-	*/
 	/*
 	strcpy(schedPtr->name, name);
 	strcpy(schedPtr->place, place);
@@ -109,14 +102,6 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 	schedPtr->month = month;
 	schedPtr->day = day;
 	*/
-	/*
-	name = schedPtr->name;
-	place = schedPtr->place;
-	type = type_string[schedPtr->type];
-	month = schedPtr->month;
-	day = schedPtr->day;
-	*/
-	
 	
 	return (void*)schedPtr;
 }
