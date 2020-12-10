@@ -75,9 +75,6 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
 	schedInfo_t* schedPtr;
 	
-	//파일 잘 읽어오나 확인.. 
-	printf("%s %s %d %d %d\n", name, place, type, month, day);
-	
 	//error handler
 	if (name == NULL || place == NULL) {
 		printf("[ERROR] failed to generate the schedule Info!\n");
@@ -111,7 +108,9 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 //get month information from the scheduler info structure
 float sched_getMonth(void* obj)
 {
-	//list_srchNd(obj, schedInfo);
+	//list_getIndexNd(int index, void* list);
+	//list_getIndexNd(obj, list);
+	
 }
 
 
