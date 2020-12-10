@@ -74,32 +74,33 @@ void sched_print(void* obj)
 void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
 	schedInfo_t* schedPtr;
+
+	//allocate memory
+	schedPtr = malloc(sizeof(schedInfo_t));
 	
 	//error handler
-	if (name == NULL || place == NULL) {
-		printf("[ERROR] failed to generate the schedule Info!\n");
-	}
+	if (schedPtr == NULL) {
+		printf("[ERROR] 메모리 할당 오류\n");
+		//return;
+	}	
 	
-	//allocate memory and set the member variables
-	schedPtr = malloc(sizeof(schedInfo_t));
-	//schedPtr = (struct schedInfo_t*)malloc(sizeof(struct schedInfo_t*));
-	//struct schedInfo schedPtr = malloc(sizeof(struct schedInfo));
-
-	/*
-	strcpy(schedPtr->name, name);
-	strcpy(schedPtr->place, place);
+	//set the member variables
+	
+/*
+	strcpy(*schedPtr->name, name);
+	strcpy(*schedPtr->place, place);
 	strcpy(type_string[schedPtr->type], type);
 	strcpy(schedPtr->month, month);
 	strcpy(schedPtr->day, day);
-	*/
-	/*
-	schedPtr->name = name;
-	schedPtr->place = place;
-	type_string[schedPtr->type] = type;
-	schedPtr->month = month;
-	schedPtr->day = day;
-	*/
+*/
 	
+	*schedPtr->name = name;
+	*schedPtr->place = place;
+	type_string[schedPtr->type] = type;
+	*schedPtr->month = month;
+	*schedPtr->day = day;
+	
+
 	return (void*)schedPtr;
 }
 
@@ -108,8 +109,11 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 //get month information from the scheduler info structure
 float sched_getMonth(void* obj)
 {
-	//list_getIndexNd(int index, void* list);
-	//list_getIndexNd(obj, list);
+	//구조체를 getMonth 함수 입력으로 넣음
+	
+	//month정보를 추출
+
+	
 	
 }
 
