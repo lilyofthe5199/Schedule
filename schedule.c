@@ -126,6 +126,36 @@ char* sched_getPlace(void* obj)
 //convert the name of the type into the enum(integer) value
 int sched_convertType(char* typeName)
 {
+	int type;
 	
+	if(typeName == "drama") 		// 드라마 
+	{
+		type = 0;
+	}
+	if(typeName == "movie")			//영화
+	{
+		type = 1;
+	}
+	if(typeName == "advertisement")	//광고
+	{
+		type = 2;
+	}
+	if(typeName == "entertainment")	//예능
+	{
+		type = 3;
+	}
+	if(typeName == "meeting")		//회의
+	{
+		type = 4;
+	}
+	if(typeName == "fitness")		//운동 
+	{
+		type = 5;
+	}
+	if(typeName == "privacy")		//개인사  
+	{
+		type = 6;
+	}
+	return type;
 }
 
