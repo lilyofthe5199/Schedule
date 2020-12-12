@@ -82,7 +82,6 @@ int main(int argc, char *argv[]) {
 					
 					ndPtr = list_getNextNd(ndPtr); //get the next node from the list
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
-
 					//fill code this part - end
 				}
 				
@@ -95,7 +94,7 @@ int main(int argc, char *argv[]) {
 				ndPtr = list;
 				while (list_isEndNode(ndPtr) == 0)
 				{
-					//file code here -- print scheduling info elements matching to the month					
+					//print scheduling info elements matching to the month					
 					printf("--------------------------------------------------\n");
 					sched_getMonth(&month);
 					sched_print(list);
@@ -116,7 +115,7 @@ int main(int argc, char *argv[]) {
 				ndPtr = list;
 				while (list_isEndNode(ndPtr) == 0)
 				{
-					//file code here -- print scheduling info elements matching to the place
+					//print scheduling info elements matching to the place
 					printf("--------------------------------------------------\n");
 					sched_getPlace(&place);
 					sched_print(list);
@@ -125,7 +124,6 @@ int main(int argc, char *argv[]) {
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 					
 					//fill code this part - end
-					
 				}
 				
 				break;
@@ -136,14 +134,14 @@ int main(int argc, char *argv[]) {
 				printf("your choice : ");
 				scanf("%s", typeName);
 				
-				sched_convertType(typeName);
+				sched_convertType(typeName); //convert the name of the type into the enum(integer) value
 				
 				if (0 <= typeName < 7)
 				{
 					ndPtr = list;
 					while (list_isEndNode(ndPtr) == 0)
 					{
-						//file code here -- print scheduling info elements matching to the place
+						//print scheduling info elements matching to the place
 						printf("--------------------------------------------------\n");
 						sched_getType(&typeName);
 						sched_print(list);
