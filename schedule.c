@@ -81,6 +81,7 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 	//error handler
 	if (schedPtr == NULL) {
 		printf("[ERROR] 메모리 할당 오류\n");
+		return;
 	}	
 	
 	//set the member variables
@@ -100,11 +101,6 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 //get month information from the scheduler info structure
 float sched_getMonth(void* obj)
 {
-	//구조체를 getMonth 함수 입력으로 넣음
-	
-	//month정보를 추출
-
-	
 	
 }
 
@@ -112,7 +108,7 @@ float sched_getMonth(void* obj)
 //get type information from the scheduler info structure
 int sched_getType(void* obj)
 {
-	
+
 }
 
 
@@ -126,36 +122,35 @@ char* sched_getPlace(void* obj)
 //convert the name of the type into the enum(integer) value
 int sched_convertType(char* typeName)
 {
-	int type;
-	
+
 	if(typeName == "drama") 		// 드라마 
 	{
-		type = 0;
+		int typeName = 0;
 	}
 	if(typeName == "movie")			//영화
 	{
-		type = 1;
+		int typeName = 1;
 	}
 	if(typeName == "advertisement")	//광고
 	{
-		type = 2;
+		int typeName = 2;
 	}
 	if(typeName == "entertainment")	//예능
 	{
-		type = 3;
+		int typeName = 3;
 	}
 	if(typeName == "meeting")		//회의
 	{
-		type = 4;
+		int typeName = 4;
 	}
 	if(typeName == "fitness")		//운동 
 	{
-		type = 5;
+		int typeName = 5;
 	}
 	if(typeName == "privacy")		//개인사  
 	{
-		type = 6;
+		int typeName = 6;
 	}
-	return type;
+	return typeName;
 }
 

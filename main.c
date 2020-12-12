@@ -95,10 +95,7 @@ int main(int argc, char *argv[]) {
 				ndPtr = list;
 				while (list_isEndNode(ndPtr) == 0)
 				{
-					//file code here -- print scheduling info elements matching to the month
-					
-					//linked list 자료구조(스케줄 정보를 다 저장한 저장소)로부터 적절히 스케줄 정보 구조체 하나를 꺼내옴.
-					
+					//file code here -- print scheduling info elements matching to the month					
 					printf("--------------------------------------------------\n");
 					sched_getMonth(&month);
 					sched_print(list);
@@ -139,16 +136,16 @@ int main(int argc, char *argv[]) {
 				printf("your choice : ");
 				scanf("%s", typeName);
 				
-				if (/* fill code here -- convert the type and check if the type is valid */
-					0 <= typeName < 7)
+				sched_convertType(typeName);
+				
+				if (0 <= typeName < 7)
 				{
 					ndPtr = list;
 					while (list_isEndNode(ndPtr) == 0)
 					{
 						//file code here -- print scheduling info elements matching to the place
 						printf("--------------------------------------------------\n");
-						type = sched_convertType(typeName);
-						sched_getType(&type);
+						sched_getType(&typeName);
 						sched_print(list);
 					
 						ndPtr = list_getNextNd(ndPtr); //get the next node from the list
