@@ -39,8 +39,7 @@ int main(int argc, char *argv[]) {
 	//2. read from the file
 	while(!feof(fp)){
 		fgets(line, max, fp);
-		// scanf로 변수를 잘 읽어온 경우에만 
-		if(sscanf(line,"%s %s %d %d %d", name, place, &type, &month, &day)==5)
+		if(sscanf(line,"%s %s %d %d %d", name, place, &type, &month, &day)==5) // scanf로 변수를 잘 읽어온 경우에만 
 		{
 			//generate genSchedInfo structure by genSchedInfo function
 			sched_genSchedInfo(name, place, type, month, day);
@@ -77,12 +76,10 @@ int main(int argc, char *argv[]) {
 				ndPtr = list;
 				while (list_isEndNode(ndPtr) == 0)
 				{
-					//file code here -- print count and each scheduling info element
-					printf("--------------------------------------------------");
-					
+					//print count and each scheduling info element
+					printf("--------------------------------------------------\n");
 					sched_print(list);
-				
-					printf(".");
+					
 					ndPtr = list_getNextNd(ndPtr); //get the next node from the list
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 
@@ -91,7 +88,7 @@ int main(int argc, char *argv[]) {
 				
 				break;
 				
-			case 2:
+			case 2: //search for schedules in the month
 				printf("which month ? : ");
 				scanf("%i", &month);
 				
@@ -100,12 +97,11 @@ int main(int argc, char *argv[]) {
 				{
 					//file code here -- print scheduling info elements matching to the month
 					
-					//1. main함수가 linked list 자료구조(스케줄 정보를 다 저장한 저장소)로부터 적절히 스케줄 정보 구조체 하나를 꺼내옴.
+					//linked list 자료구조(스케줄 정보를 다 저장한 저장소)로부터 적절히 스케줄 정보 구조체 하나를 꺼내옴.
 					
-					
+					printf("--------------------------------------------------\n");
 					sched_getMonth(&month);
-					
-					sched_print(schedInfo);
+					sched_print(list);
 					
 					ndPtr = list_getNextNd(ndPtr); //get the next node from the list
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
@@ -116,7 +112,7 @@ int main(int argc, char *argv[]) {
 				
 				break;
 				
-			case 3:
+			case 3: //search for schedules in the place
 				printf("which place ? : ");
 				scanf("%s", place);
 				
@@ -124,6 +120,10 @@ int main(int argc, char *argv[]) {
 				while (list_isEndNode(ndPtr) == 0)
 				{
 					//file code here -- print scheduling info elements matching to the place
+					printf("--------------------------------------------------\n");
+					sched_getPlace(&place);
+					sched_print(list);
+					
 					ndPtr = list_getNextNd(ndPtr); //get the next node from the list
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 					
@@ -133,7 +133,7 @@ int main(int argc, char *argv[]) {
 				
 				break;
 				
-			case 4:
+			case 4: //search for specific type schedule
 				printf("which type ?\n");
 				sched_printTypes();
 				printf("your choice : ");
@@ -146,6 +146,11 @@ int main(int argc, char *argv[]) {
 					while (list_isEndNode(ndPtr) == 0)
 					{
 						//file code here -- print scheduling info elements matching to the place
+						printf("--------------------------------------------------\n");
+						type = sched_convertType(typeName);
+						sched_getType(&type);
+						sched_print(list);
+					
 						ndPtr = list_getNextNd(ndPtr); //get the next node from the list
 						schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 						
@@ -159,12 +164,12 @@ int main(int argc, char *argv[]) {
 				}
 				break;
 				
-			case 5:
+			case 5: //exit
 				printf("Bye!\n\n");
 				exit_flag = 1;
 				break;
 				
-			default:
+			default: // 잘못된 입력  
 				printf("wrong command! input again\n");
 				break;
 		}

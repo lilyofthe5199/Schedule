@@ -81,25 +81,16 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 	//error handler
 	if (schedPtr == NULL) {
 		printf("[ERROR] 메모리 할당 오류\n");
-		//return;
 	}	
 	
 	//set the member variables
+	strcpy(schedPtr->name, name);
+	strcpy(schedPtr->place, place);
+	schedPtr->type = type;
+	schedPtr->month = month;
+	schedPtr->day = day;
 	
-/*
-	strcpy(*schedPtr->name, name);
-	strcpy(*schedPtr->place, place);
-	strcpy(type_string[schedPtr->type], type);
-	strcpy(schedPtr->month, month);
-	strcpy(schedPtr->day, day);
-*/
-	
-	*schedPtr->name = name;
-	*schedPtr->place = place;
-	type_string[schedPtr->type] = type;
-	*schedPtr->month = month;
-	*schedPtr->day = day;
-	
+	free(schedPtr);
 
 	return (void*)schedPtr;
 }
